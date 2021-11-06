@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -27,11 +26,11 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 30)
     private String email;
 
-    @ColumnDefault("'user'")
-    private String role;
+    @Enumerated(EnumType.STRING)   // DB는 RoleType이라는 게 없음. 따라서, 해당 Enum이 String이라는 것을 명시
+    private RoleType role;
 
     @CreationTimestamp
     private Timestamp createDate;
