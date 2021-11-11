@@ -13,14 +13,12 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public int join(User user) {
-        try {
-            userRepository.save(user);
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-        return -1;
+    public void join(User user) {
+        userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)   // 정합성을 유지하도록 설정 (데이터 조회시 데이터의 값이 항상 일치)
+    public User login(User user) {
+        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
     }
 }

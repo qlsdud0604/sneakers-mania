@@ -31,7 +31,7 @@ public class Board {
     @ColumnDefault("0")
     private int count;
 
-    @ManyToOne   // N(게시물) : 1(사용자)으로 연관 관계 설정
+    @ManyToOne   // N(게시물) : 1(사용자)으로 연관 관계 설정 -> ManyToOne의 기본전략은  EAGER
     @JoinColumn(name = "userId")
     private User user;
 
