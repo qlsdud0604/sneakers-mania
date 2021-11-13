@@ -17,8 +17,5 @@ public class UserService {
         userRepository.save(user);
     }
 
-    @Transactional(readOnly = true)   // 정합성을 유지하도록 설정 (데이터 조회시 데이터의 값이 항상 일치)
-    public User login(User user) {
-        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-    }
+
 }
