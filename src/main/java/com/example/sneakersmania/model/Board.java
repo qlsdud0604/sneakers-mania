@@ -28,7 +28,6 @@ public class Board {
     @Lob   // 대용량 데이터 저장시 사용
     private String content;
 
-    @ColumnDefault("0")
     private int count;
 
     @ManyToOne   // N(게시물) : 1(사용자)으로 연관 관계 설정 -> ManyToOne의 기본전략은  EAGER
