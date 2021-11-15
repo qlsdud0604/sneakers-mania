@@ -24,14 +24,21 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+    @Transactional(readOnly = true)
     public Page<Board> getBoardList(Pageable pageable) {
         return boardRepository.findAll(pageable);
     }
 
+    @Transactional(readOnly = true)
     public Board getBoardDetail(int id) {
         return boardRepository.findById(id)
                 .orElseThrow(() -> {
                     return new IllegalArgumentException("해당 게시글을 찾을 수 없습니다.");
                 });
+    }
+
+    @Transactional
+    public void deleteBoard(int id) {
+        boardRepository.deleteById(id);
     }
 }
