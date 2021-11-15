@@ -34,11 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()   // csrf 토큰 비활성화
                 .authorizeRequests()
-                .antMatchers("/auth/**", "/js/**", "/css/**", "/image/**").permitAll()
+                .antMatchers("/", "/auth/**", "/js/**", "/css/**", "/image/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/auth/loginForm")
-                .loginProcessingUrl("/auth/loginProc")   // 해당 주소로 오는 로그인 요처을 가로챔
+                .loginProcessingUrl("/auth/loginProc")   // 해당 주소로 오는 로그인 요청을 가로챔
                 .defaultSuccessUrl("/");
     }
 }
