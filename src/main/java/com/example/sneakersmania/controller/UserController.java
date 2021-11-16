@@ -15,6 +15,11 @@ public class UserController {
     public String loginForm() {
         return "user/loginForm";
     }
+
+    @GetMapping("/user/updateForm")
+    public String updateForm() {
+        return "user/updateForm";
+    }
 }
 
 // 1. 인증이 안된 사용자들이 출입할 수 있는 경로를 "/auth"로 설정하기 위해 회원가입, 로그인 url에 "/auth" 추가
