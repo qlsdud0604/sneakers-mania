@@ -17,6 +17,7 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+
     @Transactional
     public void join(User user) {
         String rawPassword = user.getPassword();
@@ -37,7 +38,7 @@ public class UserService {
 
         String rawPassword = user.getPassword();
         String encodedPassword = encoder.encode(rawPassword);
-  
+
         persistance.setEmail(user.getEmail());
         persistance.setPassword(encodedPassword);
     }

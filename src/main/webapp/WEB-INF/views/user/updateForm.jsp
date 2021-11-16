@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="이메일을 입력해 주세요."
+            <input type="email" value="${principal.user.email}" class="form-control" placeholder="이메일을 입력해 주세요."
                    id="email">
         </div>
         <div class="form-group">
