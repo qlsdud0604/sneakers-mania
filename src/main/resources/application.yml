@@ -34,5 +34,8 @@ spring:
     serialization:
       fail-on-empty-beans: false
 
+password:
+  key: qlsdud0604
+
 
 
