@@ -24,25 +24,28 @@
     <br/>
     <br/>
     <div class="card">
-        <div class="card-body d-flex"><textarea class="form-control"></textarea>
-            &nbsp;&nbsp;<button class="btn btn-primary">등록</button>
+        <div class="card-body d-flex"><textarea id="reply-content" class="form-control"></textarea>
+            &nbsp;&nbsp;<button type="buton" id="btn-reply-save" class="btn btn-primary">등록</button>
         </div>
     </div>
     <br/>
     <div class="card">
-        <div class="card-header">댓글 리스트</div>
-        <ul id="reply--box" class="list-group">
-            <c:forEach var="reply" items="${board.replies}">
-                <li id="reply" class="list-group-item d-flex justify-content-between">
-                    <div>${reply.content}</div>
-                    <div class="d-flex">
-                        <div class="font-italic">작성자 : ${reply.user.username} &nbsp;&nbsp;</div>
-                        <button class="badge">삭제</button>
-                    </div>
-                </li>
-            </c:forEach>
+        <form>
+            <input type="hidden" id="boardId" value="${board.id}"/>
+            <div class="card-header">댓글 리스트</div>
+            <ul id="reply--box" class="list-group">
+                <c:forEach var="reply" items="${board.replies}">
+                    <li id="reply" class="list-group-item d-flex justify-content-between">
+                        <div>${reply.content}</div>
+                        <div class="d-flex">
+                            <div class="font-italic">작성자 : ${reply.user.username} &nbsp;&nbsp;</div>
+                            <button class="badge">삭제</button>
+                        </div>
+                    </li>
+                </c:forEach>
 
-        </ul>
+            </ul>
+        </form>
     </div>
 </div>
 

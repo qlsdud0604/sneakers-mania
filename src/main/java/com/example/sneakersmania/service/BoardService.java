@@ -1,8 +1,10 @@
 package com.example.sneakersmania.service;
 
 import com.example.sneakersmania.model.Board;
+import com.example.sneakersmania.model.Reply;
 import com.example.sneakersmania.model.User;
 import com.example.sneakersmania.repository.BoardRepository;
+import com.example.sneakersmania.repository.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,9 +17,12 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Autowired
+    private ReplyRepository replyRepository;
+
 
     @Transactional
-    public void save(Board board, User user) {
+    public void saveBoard(Board board, User user) {
         board.setCount(0);
         board.setUser(user);
 
@@ -55,4 +60,18 @@ public class BoardService {
         // 해당 함수가 종료될 시 트랜잭션이 종료됨
         // 이때, 업데이트된 데이터가 DB에 반영
     }
+
+    @Transactional
+    public void saveReply(User user, int boardId, Reply requestReply) {
+        Board board = boardRepository.findById(boardId)
+                .orElseThrow(() -> {
+                    return new IllegalArgumentException("댓글 작성에 실패하였습니다.");
+                });
+
+        requestReply.setUser(user);
+        requestReply.setBoard(board);
+
+        replyRepository.save(requestReply);
+    }
+
 }

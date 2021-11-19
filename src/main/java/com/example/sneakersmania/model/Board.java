@@ -38,6 +38,7 @@ public class Board {
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)   // mappedBy : 연관관계의 주인이 아니라는 뜻 (해당 속성은 FK가 아님)
     @JsonIgnoreProperties({"board"})   // 무한 참조 방지
+    @OrderBy("id desc")
     private List<Reply> replies;
 
     @CreationTimestamp
