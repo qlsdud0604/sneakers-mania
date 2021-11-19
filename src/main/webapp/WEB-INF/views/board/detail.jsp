@@ -31,14 +31,17 @@
     <br/>
     <div class="card">
         <div class="card-header">댓글 리스트</div>
-        <ul id="comment--box" class="list-group">
-            <li class="list-group-item d-flex justify-content-between">
-                <div>댓글 내용</div>
-                <div class="d-flex">
-                    <div class="font-italic">작성자 : 홍길동 &nbsp;&nbsp;</div>
-                    <button class="badge">삭제</button>
-                </div>
-            </li>
+        <ul id="reply--box" class="list-group">
+            <c:forEach var="reply" items="${board.replies}">
+                <li id="reply" class="list-group-item d-flex justify-content-between">
+                    <div>${reply.content}</div>
+                    <div class="d-flex">
+                        <div class="font-italic">작성자 : ${reply.user.username} &nbsp;&nbsp;</div>
+                        <button class="badge">삭제</button>
+                    </div>
+                </li>
+            </c:forEach>
+
         </ul>
     </div>
 </div>

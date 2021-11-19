@@ -1,5 +1,7 @@
 package com.example.sneakersmania.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,8 +36,9 @@ public class Board {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
-    private List<Reply> reply;
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)   // mappedBy : 연관관계의 주인이 아니라는 뜻 (해당 속성은 FK가 아님)
+    @JsonIgnoreProperties({"board"})   // 무한 참조 방지
+    private List<Reply> replies;
 
     @CreationTimestamp
     private Timestamp createDate;
