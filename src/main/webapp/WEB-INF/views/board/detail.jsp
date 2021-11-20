@@ -34,13 +34,15 @@
             <input type="hidden" id="userId" value="${principal.user.id}"/>
             <input type="hidden" id="boardId" value="${board.id}"/>
             <div class="card-header">댓글 리스트</div>
-            <ul id="reply--box" class="list-group">
+            <ul id="reply-box" class="list-group">
                 <c:forEach var="reply" items="${board.replies}">
-                    <li id="reply" class="list-group-item d-flex justify-content-between">
+                    <li id="reply-${reply.id}" class="list-group-item d-flex justify-content-between">
                         <div>${reply.content}</div>
                         <div class="d-flex">
                             <div class="font-italic">작성자 : ${reply.user.username} &nbsp;&nbsp;</div>
-                            <button class="badge">삭제</button>
+                            <c:if test="${reply.user.id==principal.user.id}">
+                                <button onclick="index.replyDelete(${board.id}, ${reply.id})" class="badge">삭제</button>
+                            </c:if>
                         </div>
                     </li>
                 </c:forEach>

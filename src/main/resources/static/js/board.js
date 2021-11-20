@@ -79,7 +79,7 @@ let index = {
             /* 응답의 결과가 성공한 경우 */
             console.log(res);
             alert("글수정이 완료되었습니다.");
-            location.href = "/";
+            location.href = "/board/" + id;
         }).fail(function (err) {
             /* 응답의 결과가 실패한 경우 */
             alert(JSON.stringify(err));
@@ -112,6 +112,22 @@ let index = {
             alert(JSON.stringify(err));
         });
     },
+    /** 댓글 삭제 요청 */
+    replyDelete: function (boardId, replyId) {
+        $.ajax({
+            /* 통신 요청 */
+            type: "DELETE",
+            url: `/api/board/${boardId}/reply/${replyId}`,
+            dataType: "json"
+        }).done(function (res) {
+            /* 응답의 결과가 성공한 경우 */
+            alert("댓글이 삭제되었습니다.");
+            location.href = `/board/${boardId}`;
+        }).fail(function (err) {
+            /* 응답의 결과가 실패한 경우 */
+            alert(JSON.stringify(err));
+        })
+    }
 }
 
 index.init();
