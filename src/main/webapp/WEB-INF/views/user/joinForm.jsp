@@ -2,7 +2,7 @@
 
 <%@ include file="../layout/header.jsp" %>
 
-<div class="container">
+<div style="width: 450px; margin: 0 auto">
     <form>
         <div class="form-group">
             <label for="username">Username</label>
@@ -17,7 +17,8 @@
             <input type="password" class="form-control" placeholder="패스워드를 입력해 주세요." id="password">
         </div>
     </form>
-    <button id="btn-save" class="btn btn-primary">회원가입</button>
+    &nbsp;
+    <button id="btn-save" class="btn btn-dark btn-block">회원가입</button>
 </div>
 
 <script src="/js/user.js"></script>

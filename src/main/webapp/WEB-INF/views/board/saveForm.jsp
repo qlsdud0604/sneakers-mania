@@ -13,7 +13,9 @@
             <textarea class="form-control summernote" rows="5" id="content"></textarea>
         </div>
     </form>
-    <button id="btn-save" class="btn btn-primary">글쓰기</button>
+    <div class="d-flex justify-content-end">
+        <button id="btn-save" class="btn btn-dark">글쓰기</button>
+    </div>
 </div>
 
 <script>

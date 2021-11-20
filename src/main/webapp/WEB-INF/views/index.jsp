@@ -3,15 +3,21 @@
 <%@ include file="layout/header.jsp" %>
 
 <div class="container">
-    <c:forEach var="board" items="${boards.content}">
-        <div class="card m-3">
-            <div class="card-body">
-                <h4 class="card-title">${board.title}</h4>
-                <a href="/board/${board.id}" class="btn btn-primary">상세보기</a>
+    <div class="d-flex">
+        <c:forEach var="board" items="${boards.content}">
+            <div class="card m-3" style="width:330px">
+                <img class="card-img-top"
+                     src="https://cdn-images.farfetch-contents.com/12/96/03/49/12960349_13486594_600.jpg"
+                     alt="Card image">
+                <hr/>
+                <div class="card-body" style="border-top-width: 1px; border-color: black">
+                    <h4 class="card-title">${board.title}</h4>
+                    <a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
+                </div>
             </div>
-        </div>
-    </c:forEach>
-
+        </c:forEach>
+    </div>
+    &nbsp;
     <ul class="pagination justify-content-center">
         <c:choose>
             <c:when test="${boards.first}">
