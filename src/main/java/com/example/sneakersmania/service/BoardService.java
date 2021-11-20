@@ -1,5 +1,6 @@
 package com.example.sneakersmania.service;
 
+import com.example.sneakersmania.dto.ReplySaveRequestDto;
 import com.example.sneakersmania.model.Board;
 import com.example.sneakersmania.model.Reply;
 import com.example.sneakersmania.model.User;
@@ -62,16 +63,8 @@ public class BoardService {
     }
 
     @Transactional
-    public void saveReply(User user, int boardId, Reply requestReply) {
-        Board board = boardRepository.findById(boardId)
-                .orElseThrow(() -> {
-                    return new IllegalArgumentException("댓글 작성에 실패하였습니다.");
-                });
-
-        requestReply.setUser(user);
-        requestReply.setBoard(board);
-
-        replyRepository.save(requestReply);
+    public void saveReply(ReplySaveRequestDto replySaveRequestDto) {
+        replyRepository.replySave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
     }
 
 }

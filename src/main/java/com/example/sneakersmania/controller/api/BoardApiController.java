@@ -1,6 +1,7 @@
 package com.example.sneakersmania.controller.api;
 
 import com.example.sneakersmania.config.auth.PrincipalDetails;
+import com.example.sneakersmania.dto.ReplySaveRequestDto;
 import com.example.sneakersmania.dto.ResponseDto;
 import com.example.sneakersmania.model.Board;
 import com.example.sneakersmania.model.Reply;
@@ -42,8 +43,8 @@ public class BoardApiController {
     }
 
     @PostMapping("/api/board/{boardId}/reply")
-    public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetails principal) {
-        boardService.saveReply(principal.getUser(), boardId, reply);
+    public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
+        boardService.saveReply(replySaveRequestDto);
 
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
