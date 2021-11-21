@@ -24,7 +24,6 @@ public class DummyControllerTest {
     public String join(User user) {
         System.out.println("username : " + user.getUsername());
         System.out.println("password : " + user.getPassword());
-        System.out.println("email : " + user.getEmail());
 
         user.setRole(RoleType.USER);
 
@@ -66,14 +65,12 @@ public class DummyControllerTest {
     public User update(@PathVariable int id, @RequestBody User user) {
         System.out.println("id : " + id);
         System.out.println("password : " + user.getPassword());
-        System.out.println("email : " + user.getEmail());
 
         User userEntity = userRepository.findById(id).orElseThrow(() -> {
             return new IllegalArgumentException("해당 유저는 존재하지 않습니다.");
         });
 
         userEntity.setPassword(user.getPassword());
-        userEntity.setEmail(user.getEmail());
 
         return userEntity;
     }

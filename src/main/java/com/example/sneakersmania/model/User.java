@@ -26,8 +26,8 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false, length = 30)
-    private String email;
+//    @Column(nullable = false, length = 30)
+//    private String email;
 
     @Enumerated(EnumType.STRING)   // DB는 RoleType이라는 게 없음. 따라서, 해당 Enum이 String이라는 것을 명시
     private RoleType role;

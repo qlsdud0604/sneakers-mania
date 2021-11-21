@@ -12,7 +12,6 @@ let index = {
     save: function () {
         let data = {
             username: $("#username").val(),
-            email: $("#email").val(),
             password: $("#password").val(),
         }
 
@@ -42,7 +41,6 @@ let index = {
         let data = {
             id: $("#id").val(),
             username: $("#username").val(),
-            email: $("#email").val(),
             password: $("#password").val(),
         }
 

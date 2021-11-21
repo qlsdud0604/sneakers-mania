@@ -2,8 +2,8 @@
 
 <%@ include file="layout/header.jsp" %>
 
-<div class="container">
-    <div class="d-flex">
+<div>
+    <div class="d-flex justify-content-center">
         <c:forEach var="board" items="${boards.content}">
             <div class="card m-3" style="width:330px">
                 <img class="card-img-top"

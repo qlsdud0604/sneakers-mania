@@ -9,10 +9,6 @@
             <input type="text" class="form-control" placeholder="아이디를 입력해 주세요." id="username">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="이메일을 입력해 주세요." id="email">
-        </div>
-        <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" placeholder="패스워드를 입력해 주세요." id="password">
         </div>

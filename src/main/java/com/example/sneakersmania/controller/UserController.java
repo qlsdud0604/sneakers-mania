@@ -110,7 +110,6 @@ public class UserController {
         User kakaoUser = User.builder()
                 .username(kakaoProfile.getKakao_account().getEmail() + "_" + kakaoProfile.getId())
                 .password(passwordKey)
-                .email(kakaoProfile.getKakao_account().getEmail())
                 .oauth("kakao")
                 .build();
 
