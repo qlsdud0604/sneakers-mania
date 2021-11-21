@@ -55,8 +55,8 @@ let index = {
         }).done(function (res) {
             /* 응답의 결과가 성공한 경우 */
             console.log(res);
-            alert("회원수정이 완료되었습니다.");
-            location.href = "/";
+            alert("패스워드 변경이 완료되었습니다.");
+            location.href = "/user/profileForm";
         }).fail(function (err) {
             /* 응답의 결과가 실패한 경우 */
             alert(JSON.stringify(err));

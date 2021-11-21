@@ -2,7 +2,7 @@
 
 <%@ include file="../layout/header.jsp" %>
 
-<div class="container">
+<div style="width: 450px; margin: 0 auto">
     <form>
         <input type="hidden" id="id" value="${principal.user.id}">
         <div class="form-group">
@@ -13,12 +13,13 @@
         <c:if test="${empty principal.user.oauth}">
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="패스워드를 입력해 주세요."
+                <input type="password" class="form-control" placeholder="변경할 패스워드를 입력해 주세요."
                        id="password">
             </div>
         </c:if>
     </form>
-    <button id="btn-update" class="btn btn-primary">회원수정</button>
+    &nbsp;
+    <button id="btn-update" class="btn btn-dark btn-block">패스워드 변경</button>
 </div>
 
 <script src="/js/user.js"></script>

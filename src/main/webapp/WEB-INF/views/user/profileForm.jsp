@@ -17,7 +17,7 @@
             <div id="update-box" class="d-flex justify-content-between align-items-center"
                  style="border-top: 1px solid lightgray; height: 70px">
                 <div style="color: black">
-                    &nbsp;&nbsp;비밀번호 변경
+                    &nbsp;&nbsp;패스워드 변경
                 </div>
                 <div style="color: black">
                     >&nbsp;&nbsp;
