@@ -126,6 +126,11 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("/user/profileForm")
+    public String profileForm() {
+        return "user/profileForm";
+    }
+
     @GetMapping("/user/updateForm")
     public String updateForm() {
         return "user/updateForm";
