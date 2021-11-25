@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 public class BoardService {
@@ -70,6 +72,11 @@ public class BoardService {
     @Transactional
     public void deleteReply(int replyId) {
         replyRepository.deleteById(replyId);
+    }
+
+    @Transactional
+    public List<Board> getUserBoardList(int userId) {
+        return boardRepository.findAllByUserId(userId);
     }
 
 }

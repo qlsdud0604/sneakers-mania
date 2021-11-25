@@ -25,7 +25,7 @@
             </div>
         </a>
     </c:if>
-    <a href="Music.html" style="text-decoration: none">
+    <a href="/user/userBoardList" style="text-decoration: none">
         <div id="board-box" class="d-flex justify-content-between align-items-center"
              style="border-top: 1px solid lightgray; border-bottom: 1px solid lightgray; height: 70px">
             <div style="color: black">

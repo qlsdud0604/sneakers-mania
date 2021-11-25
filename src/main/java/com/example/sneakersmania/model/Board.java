@@ -1,12 +1,7 @@
 package com.example.sneakersmania.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -14,7 +9,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -32,7 +28,7 @@ public class Board {
 
     private int count;
 
-    @ManyToOne   // N(게시물) : 1(사용자)으로 연관 관계 설정 -> ManyToOne의 기본전략은  EAGER
+    @ManyToOne   // N(게시물) : 1(사용자)으로 연관 관계 설정 -> ManyToOne의 기본전략은 EAGER
     @JoinColumn(name = "userId")
     private User user;
 

@@ -1,8 +1,11 @@
 package com.example.sneakersmania.controller;
 
+import com.example.sneakersmania.config.auth.PrincipalDetails;
+import com.example.sneakersmania.model.Board;
 import com.example.sneakersmania.model.KakaoProfile;
 import com.example.sneakersmania.model.OAuthToken;
 import com.example.sneakersmania.model.User;
+import com.example.sneakersmania.service.BoardService;
 import com.example.sneakersmania.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,14 +18,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -33,6 +41,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BoardService boardService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -134,6 +145,24 @@ public class UserController {
     @GetMapping("/user/updateForm")
     public String updateForm() {
         return "user/updateForm";
+    }
+
+    @GetMapping("/user/userBoardList")
+    public String getUserBoardList(Model model, @AuthenticationPrincipal PrincipalDetails principal) {
+        User user = principal.getUser();
+
+        List<Board> list = boardService.getUserBoardList(user.getId());
+
+        Collections.sort(list, new Comparator<Board>() {
+            @Override
+            public int compare(Board o1, Board o2) {
+                return o2.getId() - o1.getId();
+            }
+        });
+
+        model.addAttribute("boards", list);
+
+        return "user/userBoardList";
     }
 }
 
