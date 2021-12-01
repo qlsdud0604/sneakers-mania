@@ -7,11 +7,12 @@
         <c:forEach var="board" items="${boards.content}">
             <div class="card m-3" style="width:330px">
                 <img class="card-img-top"
-                     src="https://cdn-images.farfetch-contents.com/12/96/03/49/12960349_13486594_600.jpg"
+                     src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbd5ujI%2FbtrmxHTCXur%2F9UIhvKYKIs2IJkeLl4dxl1%2Fimg.jpg"
                      alt="Card image">
                 <hr/>
                 <div class="card-body" style="border-top-width: 1px; border-color: black">
-                    <h4 class="card-title">${board.title}</h4>
+                    <h5 class="card-title">${board.title}</h5>
+                    <br/>
                     <a href="/board/${board.id}" class="btn btn-dark">상세보기</a>
                 </div>
             </div>

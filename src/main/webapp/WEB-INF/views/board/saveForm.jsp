@@ -22,8 +22,42 @@
     $('.summernote').summernote({
         placeholder: '내용을 입력해주세요.',
         tabsize: 2,
-        height: 250
+        height: 250,
+        callbacks: {
+            onImageUpload: function (files) {
+
+                for (var i = files.length - 1; i >= 0; i--) {
+                    uploadSummernoteImageFile(files[i], this);
+                }
+            },
+            onPaste: function (e) {
+                var clipboardData = e.originalEvent.clipboardData;
+
+                if (clipboardData && clipboardData.items && clipboardData.items.length) {
+                    var item = clipboardData.items[0];
+
+                    if (item.kind === 'file' && item.type.indexOf('image/') !== -1)
+                        e.preventDefault();
+                }
+            }
+        }
     });
+
+    function uploadSummernoteImageFile(file, editor) {
+        data = new FormData();
+        data.append("file", file);
+
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "/uploadSummernoteImageFile",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $(editor).summernote('insertImage', data.url);
+            }
+        });
+    }
 </script>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp" %>
