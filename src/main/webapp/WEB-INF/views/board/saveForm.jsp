@@ -25,19 +25,8 @@
         height: 250,
         callbacks: {
             onImageUpload: function (files) {
-
                 for (var i = files.length - 1; i >= 0; i--) {
                     uploadSummernoteImageFile(files[i], this);
-                }
-            },
-            onPaste: function (e) {
-                var clipboardData = e.originalEvent.clipboardData;
-
-                if (clipboardData && clipboardData.items && clipboardData.items.length) {
-                    var item = clipboardData.items[0];
-
-                    if (item.kind === 'file' && item.type.indexOf('image/') !== -1)
-                        e.preventDefault();
                 }
             }
         }

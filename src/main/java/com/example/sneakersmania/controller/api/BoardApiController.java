@@ -90,7 +90,6 @@ public class BoardApiController {
             e.printStackTrace();
         }
 
-        System.out.println(jsonObject);
         return jsonObject;
     }
 }
