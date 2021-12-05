@@ -18,9 +18,23 @@ let index = {
     },
     /** 글쓰기 요청 */
     save: function () {
+
+        /* 썸네일 URL 추출 */
+        const imgRex = /<img.*?src="(.*?)"[^>]+>/g;
+
+        const images = [];
+
+        while ((img = imgRex.exec($("#content").val()))) {
+            images.push(img[1]);
+
+            if (images.length === 1)
+                break;
+        }
+
         let data = {
             title: $("#title").val(),
             content: $("#content").val(),
+            thumbnail: images[0]
         }
 
         $.ajax({
@@ -63,9 +77,22 @@ let index = {
     update: function () {
         let id = $("#id").val();
 
+        /* 썸네일 URL 추출 */
+        const imgRex = /<img.*?src="(.*?)"[^>]+>/g;
+
+        const images = [];
+
+        while ((img = imgRex.exec($("#content").val()))) {
+            images.push(img[1]);
+
+            if (images.length === 1)
+                break;
+        }
+
         let data = {
             title: $("#title").val(),
             content: $("#content").val(),
+            thumbnail: images[0]
         }
 
         $.ajax({

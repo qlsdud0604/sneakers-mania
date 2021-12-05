@@ -26,9 +26,7 @@
         height: 250,
         callbacks: {
             onImageUpload: function (files) {
-                for (var i = files.length - 1; i >= 0; i--) {
-                    uploadSummernoteImageFile(files[i], this);
-                }
+                uploadSummernoteImageFile(files[0], this);
             }
         }
     });

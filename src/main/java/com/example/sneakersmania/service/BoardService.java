@@ -59,6 +59,7 @@ public class BoardService {
 
         board.setTitle(requestBoard.getTitle());
         board.setContent(requestBoard.getContent());
+        board.setThumbnail(requestBoard.getThumbnail());
 
         // 해당 함수가 종료될 시 트랜잭션이 종료됨
         // 이때, 업데이트된 데이터가 DB에 반영

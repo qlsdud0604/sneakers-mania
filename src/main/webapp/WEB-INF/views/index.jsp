@@ -6,9 +6,11 @@
     <div class="d-flex justify-content-center">
         <c:forEach var="board" items="${boards.content}">
             <div class="card m-3" style="width:330px">
-                <img class="card-img-top"
-                     src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbd5ujI%2FbtrmxHTCXur%2F9UIhvKYKIs2IJkeLl4dxl1%2Fimg.jpg"
-                     alt="Card image">
+                <div class="d-flex card-body" style="height: 300px">
+                    <img class="card-img-top"
+                         src="${board.thumbnail}"
+                         alt="https://missioninfra.net/img/noimg/noimg_4x3.gif">
+                </div>
                 <hr/>
                 <div class="card-body" style="border-top-width: 1px; border-color: black">
                     <h5 class="card-title">${board.title}</h5>
