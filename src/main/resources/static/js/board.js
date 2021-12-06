@@ -31,6 +31,9 @@ let index = {
                 break;
         }
 
+        if (images.length === 0)
+            images.push("https://missioninfra.net/img/noimg/noimg_4x3.gif");
+
         let data = {
             title: $("#title").val(),
             content: $("#content").val(),
@@ -88,6 +91,9 @@ let index = {
             if (images.length === 1)
                 break;
         }
+
+        if (images.length === 0)
+            images.push("https://missioninfra.net/img/noimg/noimg_4x3.gif");
 
         let data = {
             title: $("#title").val(),

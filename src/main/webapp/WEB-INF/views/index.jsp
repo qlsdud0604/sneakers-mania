@@ -8,8 +8,7 @@
             <div class="card m-3" style="width:330px">
                 <div class="d-flex card-body" style="height: 300px">
                     <img class="card-img-top"
-                         src="${board.thumbnail}"
-                         alt="https://missioninfra.net/img/noimg/noimg_4x3.gif">
+                         src="${board.thumbnail}">
                 </div>
                 <hr/>
                 <div class="card-body" style="border-top-width: 1px; border-color: black">
