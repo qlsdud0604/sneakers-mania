@@ -58,4 +58,4 @@
 </br>
 
 ## 링크
-* YouTube : 업데이트 예정
+* YouTube : https://www.youtube.com/watch?v=Nvt4RBb1Vr4&t=6s
